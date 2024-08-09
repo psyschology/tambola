@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Housie - Admin Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 p-4">
+    <header class="bg-blue-600 text-white p-4 mb-4">
+        <h1 class="text-3xl font-bold text-center">Admin Page</h1>
+    </header>
+    <div class="bg-white shadow-lg p-6 rounded mb-4">
+        <h2 class="text-2xl font-bold mb-4">Manage Game</h2>
+        <button id="startGame" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded mb-2">Start Game</button>
+        <button id="stopGame" class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded">Stop Game</button>
+    </div>
+    <div class="bg-white shadow-lg p-6 rounded mb-4">
+        <h2 class="text-2xl font-bold mb-4">Manage Tickets</h2>
+        <div class="mb-4">
+            <label for="ticketLimit" class="block text-gray-700">Set Ticket Limit:</label>
+            <input type="number" id="ticketLimit" class="border p-2 w-full" placeholder="Enter ticket limit">
+            <button id="saveTicketLimit" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded mt-2">Save Ticket Limit</button>
+        </div>
+        <div class="mb-4">
+            <label for="gameStartDateTime" class="block text-gray-700">Set Game Start Date & Time:</label>
+            <input type="datetime-local" id="gameStartDateTime" class="border p-2 w-full">
+            <button id="saveGameStartTime" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded mt-2">Save Start Time</button>
+        </div>
+        <div class="mb-4">
+            <label for="ticketNumber" class="block text-gray-700">Ticket Number:</label>
+            <input type="number" id="ticketNumber" class="border p-2 w-full">
+        </div>
+        <div class="mb-4">
+            <label for="ticketOwner" class="block text-gray-700">Ticket Owner:</label>
+            <input type="text" id="ticketOwner" class="border p-2 w-full">
+        </div>
+        <button id="bookTicket" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">Book Ticket</button>
+    </div>
+    <div class="bg-white shadow-lg p-6 rounded">
+        <h2 class="text-2xl font-bold mb-4">Manage Dividends</h2>
+        <div id="dividendForm" class="flex mb-4">
+            <input type="text" id="dividendName" class="border p-2 w-full mr-2" placeholder="Enter dividend name">
+            <input type="number" id="dividendPrice" class="border p-2 w-full mr-2" placeholder="Enter dividend price">
+            <button id="addDividend" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded">Add Dividend</button>
+        </div>
+        <ul id="adminDividends" class="mt-4">
+            <!-- Admin can manage dividends here -->
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

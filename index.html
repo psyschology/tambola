@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Housie - User Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <h1 class="text-3xl font-bold">Daily Housie</h1>
+        <div class="relative">
+            <button id="loginBtn" class="bg-blue-800 hover:bg-blue-900 text-white py-2 px-4 rounded">
+                Login
+            </button>
+            <div id="loginDropdown" class="hidden absolute right-0 mt-2 py-2 w-48 bg-white border rounded shadow-xl">
+                <a href="#" id="loginAdmin" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Login as Admin</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="adminLoginPopup" class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded shadow-lg">
+            <h2 class="text-xl font-bold mb-4">Enter Admin Password</h2>
+            <input type="password" id="adminPassword" class="border p-2 mb-4 w-full">
+            <button id="adminLoginSubmit" class="bg-blue-600 text-white py-2 px-4 rounded">Submit</button>
+        </div>
+    </div>
+
+    <!-- Content for when the game is not running -->
+    <section id="notRunning" class="p-4">
+        <div class="flex justify-between mb-4">
+            <div class="bg-white shadow-lg p-6 rounded text-center">
+                <h2 class="text-2xl font-bold">Game Start Time</h2>
+                <p id="gameStartTime" class="text-lg">8:00 PM</p>
+            </div>
+            <div class="bg-white shadow-lg p-6 rounded text-center">
+                <h2 class="text-2xl font-bold">Time Left Until Next Game</h2>
+                <p id="timeLeft" class="text-lg">00:45:00</p>
+            </div>
+        </div>
+        <div class="mb-4">
+            <p class="text-center text-lg">Book Upcoming Game Tickets</p>
+        </div>
+        <div class="mb-4">
+            <input type="text" id="ticketSearch" class="border p-2 w-full" placeholder="Search Ticket Number or Name">
+        </div>
+        <div id="ticketsContainer" class="grid grid-cols-2 gap-4">
+            <!-- Tickets will be displayed here -->
+        </div>
+    </section>
+
+    <!-- Content for when the game is running -->
+    <section id="running" class="hidden p-4">
+        <div class="bg-white shadow-lg p-6 rounded mb-4">
+            <h2 class="text-2xl font-bold text-center">Housie Board</h2>
+            <table class="table-fixed w-full text-center">
+                <tbody id="housieBoard">
+                    <!-- Housie board numbers will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="mb-4">
+            <input type="text" id="runningTicketSearch" class="border p-2 w-full" placeholder="Search Ticket Number or Name">
+        </div>
+        <div id="dividendList" class="bg-white shadow-lg p-6 rounded">
+            <h2 class="text-2xl font-bold mb-4">Dividend List</h2>
+            <ul id="dividends">
+                <!-- Dividends will be listed here -->
+            </ul>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
