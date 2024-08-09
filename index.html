@@ -73,6 +73,45 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        const adminPassword = 'jaybasotia';
+
+        // Show login dropdown
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            const dropdown = document.getElementById('loginDropdown');
+            dropdown.classList.toggle('hidden');
+        });
+
+        // Show admin login popup
+        document.getElementById('loginAdmin').addEventListener('click', () => {
+            const popup = document.getElementById('adminLoginPopup');
+            popup.classList.remove('hidden');
+        });
+
+        // Handle admin login
+        document.getElementById('adminLoginSubmit').addEventListener('click', () => {
+            const enteredPassword = document.getElementById('adminPassword').value;
+
+            if (enteredPassword === adminPassword) {
+                window.location.href = 'admin.html'; // Redirect to the admin page
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        });
+
+        // Hide login popup when clicking outside
+        window.addEventListener('click', (event) => {
+            if (!event.target.matches('#loginBtn') && !event.target.matches('#loginAdmin')) {
+                const dropdown = document.getElementById('loginDropdown');
+                const popup = document.getElementById('adminLoginPopup');
+                if (!dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                }
+                if (!popup.classList.contains('hidden')) {
+                    popup.classList.add('hidden');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
